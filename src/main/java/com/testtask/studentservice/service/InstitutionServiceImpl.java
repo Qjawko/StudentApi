@@ -4,6 +4,7 @@ import com.testtask.studentservice.exception.InvalidRequestParameterException;
 import com.testtask.studentservice.model.Institution;
 import com.testtask.studentservice.repository.InstitutionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -11,6 +12,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Service
 public class InstitutionServiceImpl implements InstitutionService {
 	private final InstitutionRepository institutionRepository;
 

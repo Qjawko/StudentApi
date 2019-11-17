@@ -1,18 +1,15 @@
 package com.testtask.studentservice.service;
 
-import com.testtask.studentservice.model.Group;
-import com.testtask.studentservice.model.Institution;
-import org.springframework.stereotype.Component;
+import com.testtask.studentservice.model.Department;
 
 import java.util.Optional;
 import java.util.Set;
 
-@Component
-public interface GroupService {
-	Optional<Group> findById(Long id);
-	Iterable<Group> findAll();
-	Group create(Group group);
-	Group update(Group group);
+public interface DepartmentService {
+	Optional<Department> findById(Long id);
+	Iterable<Department> findAll();
+	Department create(Department aDepartment);
+	Department update(Department aDepartment);
 	void deleteById(Long id);
 
 	/**
@@ -21,7 +18,7 @@ public interface GroupService {
 	 * @param searchString String, containing numerals, alphabetical symbols and spaces, symbols * / - +
 	 * @return Groups that match
 	 */
-	Iterable<Group> search(String searchString);
+	Iterable<Department> search(String searchString);
 
 	/**
 	 * Performs full-text search against words in boolean mode.
@@ -30,5 +27,5 @@ public interface GroupService {
 	 * @param words Set of words to be matched against. Should be alphabetical or numeral, without delimiters and other symbols
 	 * @return Groups that match
 	 */
-	Iterable<Group> search(Set<String> words);
+	Iterable<Department> search(Set<String> words);
 }

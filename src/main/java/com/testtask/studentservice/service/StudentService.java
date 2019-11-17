@@ -1,13 +1,10 @@
 package com.testtask.studentservice.service;
 
-import com.testtask.studentservice.model.Group;
 import com.testtask.studentservice.model.Student;
-import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 import java.util.Set;
 
-@Component
 public interface StudentService {
 	Optional<Student> findById(Long id);
 	Iterable<Student> findAll();

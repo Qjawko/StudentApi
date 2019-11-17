@@ -1,5 +1,6 @@
 package com.testtask.studentservice.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class Institution {
 	Long id;
 	String name;
 
-	@OneToMany
-	Set<Group> groups;
+	@JsonManagedReference
+	@OneToMany(mappedBy = "institution")
+	Set<Department> departments;
 }

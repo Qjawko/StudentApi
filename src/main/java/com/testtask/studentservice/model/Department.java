@@ -1,8 +1,11 @@
 package com.testtask.studentservice.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -14,16 +17,18 @@ import java.util.Set;
 @ToString(exclude = "institution")
 @EqualsAndHashCode(exclude = "institution")
 @Entity
-public class Group {
+public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String name;
 
-	@OneToMany
-	Set<Student> Students;
+	@OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+	@JsonManagedReference
+	Set<Student> students;
 
-	@ManyToOne
-	@JsonIgnore
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
+	@JoinColumn
 	Institution institution;
 }

@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/institutions
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  rabbitmq:
+    channel:
+      cache-size: ${RABBITMQ_CHANNEL_CACHE_SIZE:10}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASS:guest}
+    listener:
+      simple:
+        concurrency: 50
+        prefetch: 10
+    addresses: ${RABBITMQ_HOSTS:localhost:5672}

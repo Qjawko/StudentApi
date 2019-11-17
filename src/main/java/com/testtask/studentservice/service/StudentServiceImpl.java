@@ -2,6 +2,7 @@ package com.testtask.studentservice.service;
 
 import com.testtask.studentservice.model.Student;
 import com.testtask.studentservice.repository.StudentRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -9,6 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Service
 public class StudentServiceImpl implements StudentService {
 	private final StudentRepository studentRepository;
 

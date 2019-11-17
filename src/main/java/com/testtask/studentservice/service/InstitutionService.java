@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 import java.util.Set;
 
-@Component
 public interface InstitutionService {
 	Optional<Institution> findById(Long id);
 	Iterable<Institution> findAll();

@@ -1,6 +1,6 @@
 package com.testtask.studentservice.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -10,23 +10,24 @@ import javax.persistence.*;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = "group")
-@EqualsAndHashCode(exclude = "group")
+@ToString(exclude = "department")
+@EqualsAndHashCode(exclude = "department")
 @Entity
 public class Student {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String secondName;
-	String firstName;
-	String patronymic;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+    String secondName;
+    String firstName;
+    String patronymic;
 
-	@ManyToOne
-	@JsonIgnore
-	Group group;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    @JsonBackReference
+    Department department;
 
-	@SuppressWarnings("unused")
-	public String getFullName() {
-		return secondName + " " + firstName + " " + patronymic;
-	}
+    @SuppressWarnings("unused")
+    public String getFullName() {
+        return secondName + " " + firstName + " " + patronymic;
+    }
 }
