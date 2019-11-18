@@ -16,6 +16,7 @@ import java.util.Set;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString(exclude = "institution")
 @EqualsAndHashCode(exclude = "institution")
+//@Table(indexes = @Index(name = "FULLTEXT", columnList = "name"))
 @Entity
 public class Department {
 	@Id

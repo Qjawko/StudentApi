@@ -12,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString(exclude = "department")
 @EqualsAndHashCode(exclude = "department")
+//@Table(indexes = @Index(name = "FULLTEXT", columnList = "secondName, firstName, patronymic"))
 @Entity
 public class Student {
     @Id

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InstitutionRepository extends CrudRepository<Institution, Long> {
-	@Query( value = "select * from Institution i where match 'name' against (:searchString in boolean mode)",
+	@Query( value = "select * from institution i where match name against (:searchString in boolean mode)",
 			nativeQuery = true)
 	Iterable<Institution> searchByName(@Param("searchString") String searchString);
 }

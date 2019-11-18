@@ -14,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+//@Table(indexes = @Index(name = "FULLTEXT", columnList = "name"))
 @Entity
 public class Institution {
 	@Id
